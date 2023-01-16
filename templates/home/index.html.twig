@@ -3,15 +3,24 @@
 {% block title %}Forum Home{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    {% if app.user %}
-        <h1>Hello {{ app.user.name }}! ✅</h1>
-    {% endif %}
-
+<div style="margin: 10px">
+        <div class="bs-docs-section">
+                <div class="row">
+                        {% for post in posts %}
+                                <div class="col-lg-4">
+                                        <div class="card mb-3" style="box-shadow: 5px 5px 10px 0 black">
+                                                <h3 class="card-header">{{ post.title }}</h3>
+                                                <div class="card-body">
+                                                        <p class="card-text">{{ post.content }}</p>
+                                                </div>
+                                                <div class="card-footer text-muted">
+                                                        <span class="float-end badge bg-info">{{ post.user.name }}/{{ post.date | date("Y-m-d H:i") }}</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        {% endfor %}
+                </div>
+        </div>
 </div>
 {% endblock %}
