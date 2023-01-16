@@ -9,8 +9,9 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ app.user.name }}! ✅</h1>
-
+    {% if app.user %}
+        <h1>Hello {{ app.user.name }}! ✅</h1>
+    {% endif %}
 
 </div>
 {% endblock %}
